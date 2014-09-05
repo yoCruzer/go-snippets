@@ -1,24 +1,3 @@
 # http
 
-## Dependencies
-
-```bash
-$ go get github.com/go-martini/martini
-```
-[Godoc Link](http://godoc.org/github.com/go-martini/martini)
-
-## Getting Started
-
-```go
-package main
-
-import "github.com/go-martini/martini"
-
-func main() {
-  m := martini.Classic()
-  m.Get("/", func() string {
-    return "Hello world!"
-  })
-  m.Run()
-}
-```
+Go has built-in complete support for creating both http servers and clients. In the former, it is common to use a third-party framework for ease of use.
