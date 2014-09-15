@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"time"
 
-	"github.com/Shopify/sarama"
+	kafka "github.com/Shopify/sarama"
 )
 
 func main() {
-	client, err := NewClient("my_client", []string{"localhost:9092"}, nil)
+	client, err := kafka.NewClient("my_client", []string{"localhost:9092"}, nil)
 	if err != nil {
 		panic(err)
 	} else {
@@ -15,7 +16,7 @@ func main() {
 	}
 	defer client.Close()
 
-	consumer, err := NewConsumer(client, "my_topic", 0, "my_consumer_group", NewConsumerConfig())
+	consumer, err := kafka.NewConsumer(client, "my_topic", 0, "my_consumer_group", kafka.NewConsumerConfig())
 	if err != nil {
 		panic(err)
 	} else {
